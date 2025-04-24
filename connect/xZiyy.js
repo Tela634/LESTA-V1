@@ -149,12 +149,12 @@ let datauser = JSON.parse(fs.readFileSync('./media/database/datauser.json'))
 
 const isUser = datauser.includes(m.sender)
 //================== [ TIME ] ==================//
-const hariini = moment.tz('Afica/EastAfrica').format('dddd, DD MMMM YYYY')
-const wib = moment.tz('Afica/EastAfrica').format('HH : mm : ss')
-const wit = moment.tz('Afica/EastAfrica').format('HH : mm : ss')
-const wita = moment.tz('Afica/EastAfrica').format('HH : mm : ss')
+const hariini = moment.tz('EasternAfrica/Nairobi').format('dddd, DD MMMM YYYY')
+const wib = moment.tz('EasternAfrica/Nairobi').format('HH : mm : ss')
+const wit = moment.tz('EasternAfrica/Nairobi').format('HH : mm : ss')
+const wita = moment.tz('EasternAfrica/Nairobi').format('HH : mm : ss')
 
-const time2 = moment().tz('Afica/EastAfrica').format('HH:mm:ss')
+const time2 = moment().tz('EasternAfrica/Nairobi').format('HH:mm:ss')
 if(time2 < "23:59:00"){
 var ucapanWaktu = 'LESTA_PRO-MD🧜'
 }
