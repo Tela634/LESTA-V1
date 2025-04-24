@@ -149,32 +149,32 @@ let datauser = JSON.parse(fs.readFileSync('./media/database/datauser.json'))
 
 const isUser = datauser.includes(m.sender)
 //================== [ TIME ] ==================//
-const hariini = moment.tz('Asia/Jakarta').format('dddd, DD MMMM YYYY')
-const wib = moment.tz('Asia/Jakarta').format('HH : mm : ss')
-const wit = moment.tz('Asia/Jayapura').format('HH : mm : ss')
-const wita = moment.tz('Asia/Makassar').format('HH : mm : ss')
+const hariini = moment.tz('Afica/East Africa').format('dddd, DD MMMM YYYY')
+const wib = moment.tz('Afica/East Africa').format('HH : mm : ss')
+const wit = moment.tz('Afica/East Africa').format('HH : mm : ss')
+const wita = moment.tz('Afica/East Africa').format('HH : mm : ss')
 
-const time2 = moment().tz('Asia/Jakarta').format('HH:mm:ss')
+const time2 = moment().tz('Afica/East Africa').format('HH:mm:ss')
 if(time2 < "23:59:00"){
-var ucapanWaktu = 'Selamat Malam 🏙️'
+var ucapanWaktu = 'LESTA_PRO-MD🧜'
 }
 if(time2 < "19:00:00"){
-var ucapanWaktu = 'Selamat Petang 🌆'
+var ucapanWaktu = 'LESTA_PRO-MD🇰🇪'
 }
 if(time2 < "18:00:00"){
-var ucapanWaktu = 'Selamat Sore 🌇'
+var ucapanWaktu = 'LESTA-PRO🌇'
 }
 if(time2 < "15:00:00"){
-var ucapanWaktu = 'Selamat Siang 🌤️'
+var ucapanWaktu = ' LESTA_PRO-MD 🌤️'
 }
 if(time2 < "10:00:00"){
-var ucapanWaktu = 'Selamat Pagi 🌄'
+var ucapanWaktu = ' LESTA_PRO-MD😁'
 }
 if(time2 < "05:00:00"){
-var ucapanWaktu = 'Selamat Subuh 🌆'
+var ucapanWaktu = ' LESTA_PRO-MD🎀'
 }
 if(time2 < "03:00:00"){
-var ucapanWaktu = 'Selamat Tengah Malam 🌃'
+var ucapanWaktu = ' LESTA_PRO-MD 🌃'
 }
 
 //================== [ DATABASE ] ==================//
@@ -185,10 +185,10 @@ if (typeof user !== 'object') global.db.data.users[m?.sender] = {}
 if (user) {
         if (!isNumber(user.afkTime)) user.afkTime = -1
         if (!('isBanned' in user)) user.isBanned = false
-        if (!('afkReason' in user)) user.afkReason = ''
+        if (!('afkReason' in user)) user.afkReason = 'User is Resting For sometime'
 } else global.db.data.users[m?.sender] = {
         afkTime: -1,
-        afkReason: '',
+        afkReason: 'busy and not near phone 🤳',
         isBanned: false,
 }
 
@@ -341,11 +341,11 @@ const reply = async (teks) => {
           continue
         }
         if (plugin.group && !isGroup) {
-          m.reply('only group')
+          m.reply('only IN group👥')
           continue
         }
         if (plugin.groupAdmins && !isGroupAdmins) {
-          m.reply('only admin')
+          m.reply('YOU ARE NOT AN ADMIN🔮')
           continue
         }
         if (plugin.botGroupAdmins && !isBotGroupAdmins) {
@@ -363,7 +363,7 @@ const reply = async (teks) => {
       if (!user) continue
       let afkTime = user.afkTime
       if (!afkTime || afkTime < 0) continue
-      let reason = user.afkReason || ''
+      let reason = user.afkReason || 'User is Resting'
       let jgntag = `Jangan Tag Dia!\nDia Lagi Afk ${reason ? 'with reason ' + reason : 'no reason'}\nJam ${clockString(new Date - afkTime)}`.trim()
       m.reply(jgntag)
     }
@@ -381,7 +381,7 @@ const reply = async (teks) => {
         reply('jangan tag owner kak, owner lagi sibuk..')
     }
 
-//+++++++[ antilin ]++++++++++
+//+++++++[ antilink ]++++++++++
 
   const antilinkgcList = JSON.parse(fs.readFileSync("./media/database/antilinkgc.json"));
     const antisalurgc = m.isGroup ? antilinkgcList.includes(from) : false;
@@ -719,7 +719,7 @@ switch(command) {
 case 'script':{
 reply(`
 ▧ 「 *LINK SCRIPT* 」
-│ https://youtube.com/@xziyy?si=ykmNPTiBGBrNzA-E
+│ https://github.com/Tela634/clairity
 │ script ini free dilarang menjual belikan.
 │ Credits: xZiyy
 │ madein: Indonesian
@@ -741,12 +741,12 @@ case 'settingmenu': {
 if (!isCreator) return m.reply(mess.owner)
     if (args[0] === 'button') {
         global.menuMode = 'button';
-        reply('✅ Mode menu diubah ke button');
+        reply('✅ successful set toMenu button');
     } else if (args[0] === 'nobutton') {
         global.menuMode = 'nobutton';
-        reply('✅ Mode menu diubah ke no button');
+        reply('✅ Successful set to Menu no button');
     } else {
-        reply('⚠️ Pilihan tidak valid! Gunakan: .settingmenu [nobutton/button]');
+        reply('⚠️ command not valid! Gunakan: .settingmenu [nobutton/button]');
     }
 }
 break;
@@ -787,21 +787,19 @@ if (categories.length > 0) {
     
     if (global.menuMode === 'nobutton') {
         menu = `
-Hai haii ${ucapanWaktu} 👋
+Hello ${ucapanWaktu} 👋
 
-*[ I N F O - B O T ]*
-*Name*: ${global.botname}
-*Version*: beta 1.0.0
-*Speed*: ${latensie.toFixed(4)} detik
-*totalUser*: ${datauser.length}
-*Runtime*: ${runtime(process.uptime())}
-
-*[ T I M E ]*
-*hariini*: ${hariini}
-*wib*: ${wib}
-*wita*: ${wita}
-*wit*: ${wit}
-
+┏─  *[ I N F O - B O T ]*───❐
+| *Name*: ${global.botname}
+| *Version*: beta 1.0.0
+| *Speed*: ${latensie.toFixed(4)} detik
+| *totalUser*: ${datauser.length}
+| *Runtime*: ${runtime(process.uptime())}
+| *hariini*: ${hariini}
+| *wib*: ${wib}
+| *wita*: ${wita}
+| *wit*: ${wit}
+┗─────────────❐
 ${menuCategories}
 
 ┏─『 \`MAIN MENU\` 』
@@ -827,14 +825,14 @@ ${menuCategories}
 │ ⿻ ${prefix}join
 ┗─────────────❐
 
-┏─『 \`ARTIFICIAL MENU\` 』
+┏─『 \`ARTIFICIAL MENU\` 』───❐
 │ ⿻ ${prefix}ai on/off
 │ ⿻ ${prefix}yousearch
 │ ⿻ ${prefix}cody
 │ ⿻ ${prefix}flux 
 ┗─────────────❐
 
-┏─『 \`GROUP MENU\` 』
+┏─『 \`GROUP MENU\` 』───❐
 │ ⿻ ${prefix}notifikasigc on/off
 │ ⿻ ${prefix}afk
 │ ⿻ ${prefix}antilinkgc
@@ -849,7 +847,7 @@ ${menuCategories}
 │ ⿻ ${prefix}closetime
 ┗─────────────❐
 
-┏─『 \`MAKER MENU\` 』
+┏─『 \`MAKER MENU\` 』───❐
 │ ⿻ ${prefix}brat text
 │ ⿻ ${prefix}bratvideo text
 │ ⿻ ${prefix}sticker
@@ -860,14 +858,14 @@ ${menuCategories}
 │ ⿻ ${prefix}wasted
 ┗─────────────❐
 
-┏─『 \`STICKER MENU\` 』
+┏─『 \`STICKER MENU\` 』───❐
 │ ⿻ ${prefix}kuromi
 │ ⿻ ${prefix}pocoyo
 │ ⿻ ${prefix}dino
 │ ⿻ ${prefix}emojimix 😴+🥰
 ┗─────────────❐
 
-┏─『 \`download menu\` 』
+┏─『 \`download menu\` 』───❐
 │ ⿻ ${prefix}pinterestdl
 │ ⿻ ${prefix}play
 │ ⿻ ${prefix}ytmp3
@@ -878,7 +876,7 @@ ${menuCategories}
 │ ⿻ ${prefix}fbdl
 ┗─────────────❐
 
-┏─『 \`SEARCH MENU\` 』
+┏─『 \`SEARCH MENU\` 』───❐
 │ ⿻ ${prefix}pinterest
 │ ⿻ ${prefix}rumaysho
 │ ⿻ ${prefix}caribuku
@@ -887,18 +885,18 @@ ${menuCategories}
 │ ⿻ ${prefix}soundcloud
 ┗─────────────❐
 
-┏─『 \`BERITA MENU\` 』
+┏─『 \`BERITA MENU\` 』───❐
 │ ⿻ ${prefix}gempa
 │ ⿻ ${prefix}liputan6
 ┗─────────────❐
 
-┏─『 \`STALKER MENU\` 』
+┏─『 \`STALKER MENU\` 』───❐
 │ ⿻ ${prefix}tikstalk 
 │ ⿻ ${prefix}githubstalk
 │ ⿻ ${prefix}igstalk
 ┗─────────────❐
 
-┏─『 \`PRIMBON MENU\` 』
+┏─『 \`PRIMBON MENU\` 』───❐
 │ ⿻ ${prefix}apakah [text]
 │ ⿻ ${prefix}bagaimanakah [text]
 │ ⿻ ${prefix}kapankah [text]
@@ -908,7 +906,7 @@ ${menuCategories}
 │ ⿻ ${prefix}hobycek [text]
 ┗─────────────❐
 
-┏─『 \`GAME MENU\` 』
+┏─『 \`GAME MENU\` 』───❐
 │ ⿻ ${prefix}tebak kata
 │ ⿻ ${prefix}tebak tebakan
 │ ⿻ ${prefix}tebak bendera
@@ -924,7 +922,7 @@ ${menuCategories}
 │ ⿻ ${prefix}tebak jkt48
 ┗─────────────❐
 
-┏─『 \`TOOLS MENU\` 』
+┏─『 \`TOOLS MENU\` 』───❐
 │ ⿻ ${prefix}hd
 │ ⿻ ${prefix}remini
 │ ⿻ ${prefix}tourl
@@ -933,7 +931,7 @@ ${menuCategories}
 │ ⿻ ${prefix}languages
 ┗─────────────❐
 
-┏─『 \`MENU SETTING\` 』
+┏─『 \`MENU SETTING\` 』───❐
 │ ⿻ ${prefix}addmenu
 │ ⿻ ${prefix}dellmenu
 │ ⿻ ${prefix}addperintah
@@ -944,13 +942,10 @@ ${menuCategories}
 │ ⿻ ${prefix}listrespon
 ┗─────────────❐
 
-┏─ *TQ TO:*
+┏─ *TQ TO:*───❐
 │   - ${global.ownername} (owner)
-│   - xZiyy
-│   - yanzdev
-│   - Siputzx Api
-│   - Clairity Api
-│   - And All Creator
+│   - LESTA_ELIUD
+|   - 254701309409@s.whatsapp.net
 ┗─────────────❐
 
 > type this to get the script:
@@ -1129,7 +1124,7 @@ await fuzzy.sendMessage(m.chat, {
     }
   ],
   headerType: 1,
-  viewOnce: true,
+  viewOnce: false,
   document: fs.readFileSync("./package.json"),
   fileName: `By ${ownername} </>`,
   mimetype: 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
@@ -1556,11 +1551,11 @@ break
             mems.push(adm.id.replace('c.us', 's.whatsapp.net'));
           });
 
-           reply(`⚠️ Warning ⚠️\n\nPlease be aware of group links being shared in this group.`)
+           reply(`⚠️ Warning ⚠️\n\nPlease be aware of  sending links 🔗 in this group📵.`)
             
         }
         else if (args[0] === "off") {
-          if (!antisalurgc) return reply('Antilinkgc is not active in this group.');
+          if (!antisalurgc) return reply('Antilink has been disabled in this group.');
           let off = antilinkgcList.indexOf(from);
           antilinkgcList.splice(off, 1);
           fs.writeFileSync('./media/database/antilinkgc.json', JSON.stringify(antilinkgcList));
@@ -1577,7 +1572,7 @@ case 'setppgroup':
 case 'setppgrup':
 case 'setppgc': {
   if (!m.isGroup) return reply(mess.group)
-  if (!isAdmins && !isCreator) return reply('only admin')
+  if (!isAdmins && !isCreator) return reply('only for admin')
   let media = await fuzzy.downloadAndSaveMediaMessage(quoted)
   await fuzzy.updateProfilePicture(m.chat, {
     url: media
@@ -1682,14 +1677,14 @@ break
 case 'add': {
   if (!m.isGroup) return reply(mess.group)
   if (!isBotAdmins) return reply(mess.Badmin)
-  if (!isAdmins && !isCreator) return reply('only admin')
+  if (!isAdmins && !isCreator) return reply('only bot admin')
   let users = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '') + '@s.whatsapp.net'
   await fuzzy.groupParticipantsUpdate(from, [users], 'add')
   reply('succss')
 }
 break
 case 'kick': {
-  if (m?.isGroup && !isAdmins && !isGroupOwner && isBotAdmins) return reply('only admin')
+  if (m?.isGroup && !isAdmins && !isGroupOwner && isBotAdmins) return reply('only admin can use this command')
   let users = m?.quoted ? m?.quoted.sender : text.replace(/[^0-9]/g, '') + '@s.whatsapp.net'
   await fuzzy.groupParticipantsUpdate(m?.chat, [users], 'remove').catch(console.log)
   m.reply('bye bye kasian deh')
@@ -1714,7 +1709,7 @@ case 'capcut':{
         video: {
           url: videoUrl,
         },
-        caption: `🎥 Video CapCut berhasil diunduh`,
+        caption:`LESTA_PRO-MD`,
         fileName: `capcut.mp4`,
         mimetype: 'video/mp4'
       });
@@ -2858,11 +2853,11 @@ case 'mode': {
   if (args[0] == "public") {
     if (db.data.settings[botNumber].public == true) return reply("Sudah Active")
     db.data.settings[botNumber].public = true
-    reply("Mode Public Telah Active")
+    reply("Public mode Activated")
   } else if (args[0] == "self") {
     if (db.data.settings[botNumber].public == false) return reply("Sudah Off")
     db.data.settings[botNumber].public = false
-    reply("Mode Self Telah Active")
+    reply("Mode Self is Active")
   }
 }
 break
@@ -3658,7 +3653,7 @@ if (stdout) return m.reply(stdout)
 
 
 if ((m?.mtype === 'groupInviteMessage' || text.startsWith('Undangan untuk bergabung') || text.startsWith('Invitation to join') || text.startsWith('Buka tautan ini')) && !m.isBaileys && !m.isGroup) {
-await fuzzy.sendMessage(m.chat, {react: {text: `❌`,key: m.key,}})
+await fuzzy.sendMessage(m.chat, {react: {text: `😊`,key: m.key,}})
 let teks = 'acces denied harus minta izin dulu ke owner'
 m.reply(teks)
 }
