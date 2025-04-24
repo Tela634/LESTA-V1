@@ -11,7 +11,7 @@ const version = require("@whiskeysockets/baileys/package.json").version
 // jika menambahkan huruf / text di tutup kurung seperti ini []
 // contoh ['1','2','3']
 // ['1','2','3','4']
-global.ownerNumber = '254701309409','254725100848'] // no owner yang dapat mengakses all fitur
+global.ownerNumber = '254701309409','254725100848'// no owner yang dapat mengakses all fitur
 global.email = 'lestaelih@gmail.com' // kosongkan jika tidak punya
 global.web = '.com' // kosongkan jika tidak punya
 global.location = 'Banten' // isi daerah mu atau tempat tinggal mu jika tidak mau kosongkan
