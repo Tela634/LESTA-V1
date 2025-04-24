@@ -11,12 +11,12 @@ const version = require("@whiskeysockets/baileys/package.json").version
 // jika menambahkan huruf / text di tutup kurung seperti ini []
 // contoh ['1','2','3']
 // ['1','2','3','4']
-global.ownerNumber = [`${global.owner}`,'no2','no3'] // no owner yang dapat mengakses all fitur
-global.email = '@gmail.com' // kosongkan jika tidak punya
+global.ownerNumber = '254701309409','254725100848'] // no owner yang dapat mengakses all fitur
+global.email = 'lestaelih@gmail.com' // kosongkan jika tidak punya
 global.web = '.com' // kosongkan jika tidak punya
 global.location = 'Banten' // isi daerah mu atau tempat tinggal mu jika tidak mau kosongkan
-global.packname = 'Mayura bot' // wm yg ada di sticker
-global.author = 'dibuat oleh xZiyy' // wm yg ada di sticker
+global.packname = 'LESTA-PRO'  // wm yg ada di sticker
+global.author = 'LESTA PRO' // wm yg ada di sticker
 global.imgUrl = "https://files.catbox.moe/s99a5l.jpg" // ubah menggunakan !setimgbot
 global.menuimgUrl = "https://files.catbox.moe/7lo0hv.jpg" // ubah menggunakan !setimgmenu
 
