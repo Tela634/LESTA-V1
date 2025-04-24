@@ -149,12 +149,12 @@ let datauser = JSON.parse(fs.readFileSync('./media/database/datauser.json'))
 
 const isUser = datauser.includes(m.sender)
 //================== [ TIME ] ==================//
-const hariini = moment.tz('Afica/East Africa').format('dddd, DD MMMM YYYY')
-const wib = moment.tz('Afica/East Africa').format('HH : mm : ss')
-const wit = moment.tz('Afica/East Africa').format('HH : mm : ss')
-const wita = moment.tz('Afica/East Africa').format('HH : mm : ss')
+const hariini = moment.tz('Afica/EastAfrica').format('dddd, DD MMMM YYYY')
+const wib = moment.tz('Afica/EastAfrica').format('HH : mm : ss')
+const wit = moment.tz('Afica/EastAfrica').format('HH : mm : ss')
+const wita = moment.tz('Afica/EastAfrica').format('HH : mm : ss')
 
-const time2 = moment().tz('Afica/East Africa').format('HH:mm:ss')
+const time2 = moment().tz('Afica/EastAfrica').format('HH:mm:ss')
 if(time2 < "23:59:00"){
 var ucapanWaktu = 'LESTA_PRO-MD🧜'
 }
@@ -720,9 +720,9 @@ case 'script':{
 reply(`
 ▧ 「 *LINK SCRIPT* 」
 │ https://github.com/Tela634/clairity
-│ script ini free dilarang menjual belikan.
-│ Credits: xZiyy
-│ madein: Indonesian
+│ script :Chat private for bot sale price.
+│ Credits: Tela634
+│ madein: Kenya🇰🇪
 ┗─────────────
 `)
 }
@@ -789,7 +789,7 @@ if (categories.length > 0) {
         menu = `
 Hello ${ucapanWaktu} 👋
 
-┏─  *[ I N F O - B O T ]*───❐
+┏─  *[ LESTA_PRO - B O T ]*───❐
 | *Name*: ${global.botname}
 | *Version*: beta 1.0.0
 | *Speed*: ${latensie.toFixed(4)} detik
